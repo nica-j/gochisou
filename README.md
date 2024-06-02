@@ -1,24 +1,37 @@
-# README
+# 御馳走
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
 
-Things you may want to cover:
+### サイトテーマ	
+人生で一番美味しいと思った料理を料理ごとに投稿し、共有するためのSNSサイトです。
 
-* Ruby version
+### テーマを選んだ理由
+美味しい飲食店はたくさんありますが、今まで食べたなかで一番美味しいと思える一品に出会う機会は年齢とともに自身の経験値も上がることで減ってきました。
+また、美味しいにも多くの種類があり、尺度は人それぞれのためインターネットや情報誌などで探すのは難しく感じていました。
+しかし一番参考になるのが、実施に赴き食事をした方の生の声だとも思います。
+そこで紹介するものを各料理につき一つと限定し、人生で一番と尺度を明確にすることで情報が精査されるのではないかと考え、このテーマを選びました。
 
-* System dependencies
+### ターゲットユーザー
+* B級グルメから高級グルメまでジャンル問わず食べることが好きな人
+* 食べたことのない料理を探している人
 
-* Configuration
+### 主な利用シーン
+* 好きな料理めぐりをしたいとき
+* パートナーなど相手の好物に絞って店を探したいとき
+* とにかく美味しいものを食べたいとき
+* 自分のお気に入り料理を記録するとき
 
-* Database creation
+### 設計書
+  後ほど作成
 
-* Database initialization
+### 開発環境
+* OS：Linux(CentOS)
+* 言語：HTML,CSS,JavaScript,Ruby,SQL
+* フレームワーク：Ruby on Rails
+* JSライブラリ：jQuery
+* IDE：Cloud9
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### 使用素材
+* フリー画像素材として以下を使用
+  - PAKUTASO(https://www.pakutaso.com)
