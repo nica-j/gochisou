@@ -11,6 +11,17 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <%= render 'layouts/header' %>
+    </header>
+    <main>
+      <% if flash[:notice] %>
+        <div class="alert-success text-center"><%= flash[:notice] %></div>
+      <% elsif flash[:alert] %>
+        <div class="alert-danger text-center"><%= flash[:alert] %></div>
+      <% end %>
+      
+      <%= yield %>
+    </main>
   </body>
 </html>
