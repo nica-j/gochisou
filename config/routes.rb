@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     root 'homes#top'
 
     get 'about' => 'homes#about'
-    get 'users/mypage' => 'users#show', as: 'mypage'
+    get 'users/mypage' => 'users#mypage', as: 'mypage'
     resources :users, only: [:show, :edit, :update, :destroy] do
       resource :relationship, only: [:create, :destroy]
         get "followers" => "relationships#followers", as: "followers"
