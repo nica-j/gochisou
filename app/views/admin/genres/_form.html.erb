@@ -1,0 +1,6 @@
+<%= form_with model:genre, url: admin_genres_path do |f| %>
+	<%= render 'layouts/error_messages', resource: genre %>
+	<%= f.label :name, "新規登録", class:"mx-1" %>
+	<%= f.text_field :name, placeholder:'ジャンル名' %>
+	<%= f.submit submit, class: "btn btn-primary ml-1" %>
+<% end %>

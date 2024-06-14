@@ -1,2 +1,7 @@
-<h1>Admin::Genres#edit</h1>
-<p>Find me in app/views/admin/genres/edit.html.erb</p>
+<h4>ジャンル名編集</h4>
+<%= form_with model: @genre, url: admin_genre_path(@genre), method: "patch" do |f| %>
+	<%= render 'layouts/error_messages', resource: @genre %>
+	<%= f.label :name, "ジャンル名", class:"mx-1" %>
+	<%= f.text_field :name %>
+	<%= f.submit "変更", class: "btn btn-primary ml-1" %>
+<% end %>

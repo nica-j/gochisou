@@ -6,7 +6,7 @@
         <%= link_to 'ごちそう', (admin_signed_in? ? admin_top_path : root_path ), class:"navbar-brand text-white" %>
         <ul class="navbar-nav">
           <% if admin_signed_in? %>
-            <li class="nav-item"><%= link_to '投稿一覧',  admin_posts_path, class: 'nav-link text-white' %></li>
+            <li class="nav-item"><%= link_to '投稿一覧',  admin_top_path, class: 'nav-link text-white' %></li>
             <li class="nav-item"><%= link_to '会員一覧',  admin_users_path, class: 'nav-link text-white' %></li>
             <li class="nav-item"><%= link_to 'ジャンル一覧',  admin_genres_path, class: 'nav-link text-white' %></li>
             <li class="nav-item"><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'nav-link text-white' %></li>
