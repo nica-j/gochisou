@@ -1,15 +1,28 @@
 <div class="container">
   <div class="row">
     <div class="col-10 mx-auto">
-      <div style="background-color :#234f4f; height: 250px;">
+      <div style="background-color :#234f4f;">
         <h1 class="text-center text-white py-3">人生のおいしいを共有しよう</h1>
-        <p class="text-center py-1 text-white">
-          このサイトは
-          <strong>「人生で一番美味しい」</strong>と思った一品を</br>
-          料理名ごとに記録・共有するごちそう集約サイトです
-        </p>
+
       </div>
-      <p class="mt-5">新規投稿</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h5 class="mt-3">新規投稿</h5>
+      <div class="d-flex flex-wrap">
+        <% @posts.each do |post| %>
+          <div class="col-2 pr-3 mb-3">
+            <% if post.image.attached? %>
+              <%= link_to (image_tag post.image, size: "160x120"), post_path(post) %>
+            <% else %>
+              <%= link_to (image_tag 'no_image', size: "160x120"), post_path(post) %>
+            <% end %></br>
+            <%= link_to post.dish, post_path(post), class: "text-dark text-center" %></br>
+            <%= link_to post.impression.truncate(20), post_path(post), class: "text-secondary" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

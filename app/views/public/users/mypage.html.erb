@@ -17,6 +17,7 @@
         <div><%= @user.introduction %></div>
         <div class="ml-3">
           <%= link_to "編集する", edit_user_path(@user), class: "btn btn-light btn-sm" %>
+          <%= link_to '退会する', @user, method: :delete, data: { confirm: "退会すると全ての情報が削除されます。\n 本当に退会しますか？" }, class: "btn btn-sm btn-secondary ml-2" %>
         </div>
       </div>
     </div>
