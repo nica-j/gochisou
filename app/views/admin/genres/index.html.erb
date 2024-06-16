@@ -1,12 +1,20 @@
-<h4>ジャンル一覧</h4>
-
-<!--新規登録form-->
-<%= render 'form', genre: @genre, url: admin_genres_path, submit: '登録' %>
-
-<% @genres.each do |genre| %>
-  <div>
-    <%= genre.id %>
-    <%= genre.name %>
-    <%= link_to "編集", edit_admin_genre_path(genre), class: "btn btn-light" %>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-12">
+      <h4 class="mb-3">ジャンル一覧</h4>
+      
+      <!--新規登録form-->
+      <div class="mb-2">
+        <%= render 'form', genre: @genre, url: admin_genres_path, submit: '登録' %>
+      </div>
+      
+      <% @genres.each do |genre| %>
+        <div class="mb-1">
+          <%= genre.id %>
+          <%= genre.name %>
+          <%= link_to "編集", edit_admin_genre_path(genre), class: "btn btn-light" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>

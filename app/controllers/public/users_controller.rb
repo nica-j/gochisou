@@ -1,5 +1,6 @@
 class Public::UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :user_state, only: [:show]
 
   def mypage
     @user = current_user
@@ -27,11 +28,19 @@ class Public::UsersController < ApplicationController
   def destroy
     @user = current_user
     @user.destroy
-    redirect_to root_path, notice: "退会が完了しました"
+    redirect_to root_path, notice: "退会しました"
   end
 
 
   private
+  
+  def user_state
+    user = User.find(params[:id])
+    if user.is_active == true
+    else
+      redirect_to posts_path
+    end
+  end
 
   def user_params
     params.require(:user).permit(:name, :introduction, :is_active, :image)

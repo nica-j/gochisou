@@ -9,7 +9,7 @@
             <th style="width: 20%">料理</th>
             <th style="width: 50%">感想</th>
             <th style="width: 5%"></th>
-            <th style="width: 15%">ユーザー</th>
+            <th style="width: 15%">投稿者</th>
           </tr>
         </thead>
         <% @posts.each do |post| %>
@@ -38,5 +38,8 @@
         <% end %>
       </table>
     </div>
+  </div>
+  <div class="row justify-content-center">
+    <div><%= paginate @posts %></div>
   </div>
 </div>

@@ -19,11 +19,14 @@
               <%= link_to (image_tag 'no_image', size: "160x120"), post_path(post) %>
             <% end %></br>
             <%= link_to post.dish, post_path(post), class: "text-dark text-center" %></br>
-            <%= link_to post.impression.truncate(20), post_path(post), class: "text-secondary" %>
+            <%= post.impression.truncate(20) %>
           </div>
         <% end %>
       </div>
     </div>
+  </div>
+  <div class="row">
+    <p class="ml-auto text-secondary">＊投稿閲覧にはログインが必要です</p>
   </div>
 </div>
 
