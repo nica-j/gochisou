@@ -36,12 +36,14 @@
       <div class="mt-1"><span>店名：</span><%= @post.restaurant_name %></div>
       <div class="mt-1"><span>メニュー名：</span><%= @post.menu %></div>
       <div class="mt-1"><span>住所：</span><%= @post.address %></div>
-      <div class="mt-3 ml-1">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3 my-3 ml-auto">
         <% if @post.user == current_user %>
           <%= link_to "編集する", edit_post_path(@post), class: "btn btn-light" %>
           <%= link_to '削除する', @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger ml-2" %>
         <% end %>
       </div>
-    </div>
   </div>
 </div>

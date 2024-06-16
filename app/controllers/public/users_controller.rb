@@ -1,10 +1,11 @@
 class Public::UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :user_state, only: [:show]
+  before_action :ensure_guest_user, only: [:edit, :update, :destroy]
 
   def mypage
     @user = current_user
-    @posts = @user.posts
+    @posts = @user.posts.page(params[:page])
   end
 
   def edit
@@ -22,7 +23,7 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts
+    @posts = @user.posts.page(params[:page])
   end
 
   def destroy
@@ -41,6 +42,13 @@ class Public::UsersController < ApplicationController
       redirect_to posts_path
     end
   end
+
+  def ensure_guest_user
+    @user = User.find(params[:id])
+    if @user.guest_user?
+      redirect_to user_path(current_user) , alert: "会員登録が必要です"
+    end
+  end  
 
   def user_params
     params.require(:user).permit(:name, :introduction, :is_active, :image)
