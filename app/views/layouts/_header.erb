@@ -1,9 +1,9 @@
 
 <nav class="navbar navbar-expand", style="background-color: #842042;">
   <div class="container">
-    <div class="row">
-      <div class="header-content d-flex">
-        <%= link_to 'ごちそう', (admin_signed_in? ? admin_top_path : root_path ), class:"navbar-brand text-white" %>
+      <div class="navbar-brand">
+        <%= link_to 'ごちそう', (admin_signed_in? ? admin_top_path : root_path ), class:"navbar-brand text-white", style:"font-size: 30px;" %>
+      </div>
         <ul class="navbar-nav">
           <% if admin_signed_in? %>
             <li class="nav-item"><%= link_to '投稿一覧',  admin_top_path, class: 'nav-link text-white' %></li>
