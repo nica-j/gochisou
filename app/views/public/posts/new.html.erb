@@ -1,14 +1,8 @@
-<h3>新規投稿</h3>
-<%= form_with model: @post, local:true do |f| %>
-  <div>
-    <%= f.label :dish, "料理名" %></br>
-    <%= f.text_field :dish %>
+<div class="container mt-3">
+  <div class="row">
+    <div>
+      <h3>新規投稿</h3>
+      <%= render 'form', post: @post %>
+    </div>
   </div>
-  <div>
-    <%= f.label :impression, "感想・一言コメント" %></br>
-    <%= f.text_area :impression %>
-  </div>
-  <div>
-    <%= f.submit class: 'btn btn-light' %>
-  </div>
-<% end %>
+</div>

@@ -75,10 +75,12 @@ ActiveRecord::Schema.define(version: 2024_06_12_064133) do
 
   create_table "posts", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "restaurant_id", null: false
     t.integer "genre_id", null: false
     t.string "dish", null: false
     t.text "impression", null: false
+    t.string "restaurant_name", null: false
+    t.string "menu", null: false
+    t.string "address", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["dish"], name: "index_posts_on_dish"

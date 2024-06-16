@@ -1,5 +1,5 @@
 <h4>ジャンル名編集</h4>
-<%= form_with model: @genre, url: admin_genre_path(@genre), method: "patch" do |f| %>
+	<%= form_with model: @genre, url: admin_genre_path(@genre), method: "patch" do |f| %>
 	<%= render 'layouts/error_messages', resource: @genre %>
 	<%= f.label :name, "ジャンル名", class:"mx-1" %>
 	<%= f.text_field :name %>
