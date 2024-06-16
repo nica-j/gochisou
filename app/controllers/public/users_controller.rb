@@ -23,7 +23,7 @@ class Public::UsersController < ApplicationController
     @user = User.find(params[:id])
     @posts = @user.posts
   end
-  
+
   def destroy
     @user = current_user
     @user.destroy
