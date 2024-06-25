@@ -6,11 +6,25 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <%= render 'layouts/header' %>
+    </header>
+    <main>
+      <% if flash[:notice] %>
+        <div class="alert-success text-center"><%= flash[:notice] %></div>
+      <% elsif flash[:alert] %>
+        <div class="alert-danger text-center"><%= flash[:alert] %></div>
+      <% end %>
+      
+      <%= yield %>
+    </main>
+    <footer>
+      <%= render 'layouts/footer' %>
+    </footer>
   </body>
 </html>
