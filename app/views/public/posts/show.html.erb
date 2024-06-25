@@ -1,0 +1,49 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="d-flex">
+      <div class="mr-5">
+        <% if @post.image.attached? %>
+          <%= image_tag @post.image, size: "240x180" %>
+        <% else %>
+          <%= image_tag 'no_image', size: "240x180" %>
+        <% end %>
+      </div>
+      <div>
+        <h3><%= @post.dish %></h3>
+        <% if @post.user.is_active == true %>
+          <p><%= @post.impression %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% if @post.user.is_active == true %>
+    <div class="row mt-3">
+      <div class="d-flex align-items-end">
+        <div>
+          <% if @post.user.image.attached? %>
+            <%= link_to (image_tag @post.user.image, size: "50x50"), user_path(@post.user_id) %>
+          <% else %>
+            <%= link_to (image_tag 'no_image', size: "50x50"), user_path(@post.user_id) %>
+          <% end %>
+        </div>
+        <p class="ml-3"><%= link_to @post.user.name, user_path(@post.user_id) %></p>
+      </div>
+    </div>
+  <% end %>
+  <div class="row mt-3">
+    <div>
+      <h5 class="ml-3">店舗情報</h5>
+      <div class="mt-1"><span>店名：</span><%= @post.restaurant_name %></div>
+      <div class="mt-1"><span>メニュー名：</span><%= @post.menu %></div>
+      <div class="mt-1"><span>住所：</span><%= @post.address %></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3 my-3 ml-auto">
+        <% if @post.user == current_user %>
+          <%= link_to "編集する", edit_post_path(@post), class: "btn btn-light" %>
+          <%= link_to '削除する', @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger ml-2" %>
+        <% end %>
+      </div>
+  </div>
+</div>

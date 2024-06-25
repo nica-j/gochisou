@@ -1,0 +1,35 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-12">
+      <table class= "table table-borderless mt-1">
+        <thead class="thead-light">
+          <tr>
+            <th style="width: 5%">ID</th>
+            <th style="width: 5%"></th>
+            <th style="width: 25%">ユーザーネーム</th>
+            <th style="width: 65%">自己紹介</th>
+          </tr>
+        </thead>
+        <% @users.each do |user| %>
+          <tbody>
+            <tr>
+              <td><%= user.id %></td>
+              <td>
+                <% if user.image.attached? %>
+                  <%= image_tag user.image, size: "40x30" %>
+                <% else %>
+                  <%= image_tag 'user_no_image', size: "40x30" %>
+                <% end %>
+              </td>
+              <td><%= link_to user.name, admin_user_path(user) %></td>
+              <td><%= user.introduction.truncate(100) %></td>
+            </tr>
+          </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div><%= paginate @users %></div>
+  </div>
+</div>
