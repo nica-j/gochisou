@@ -18,32 +18,42 @@
   </div>
   <% if @post.user.is_active == true %>
     <div class="row mt-3">
-      <div class="d-flex align-items-end">
-        <div>
+      <div class="col-12 d-flex text-center align-items-end">
+        <div class="mx-2">
           <% if @post.user.image.attached? %>
             <%= link_to (image_tag @post.user.image, size: "50x50"), user_path(@post.user_id) %>
           <% else %>
             <%= link_to (image_tag 'no_image', size: "50x50"), user_path(@post.user_id) %>
           <% end %>
         </div>
-        <p class="ml-3"><%= link_to @post.user.name, user_path(@post.user_id) %></p>
+        <div class="mx-2">
+          <p><%= link_to @post.user.name, user_path(@post.user_id) %></p>
+        </div>
+        <div class="mx-2">
+          <%= render 'public/comments/counter', post: @post %>
+        </div>
       </div>
     </div>
   <% end %>
-  <div class="row mt-3">
-    <div>
+  <div class="row mt-3 align-items-end">
+    <div class="col-8">
       <h5 class="ml-3">店舗情報</h5>
       <div class="mt-1"><span>店名：</span><%= @post.restaurant_name %></div>
       <div class="mt-1"><span>メニュー名：</span><%= @post.menu %></div>
       <div class="mt-1"><span>住所：</span><%= @post.address %></div>
     </div>
+    <div class="col-3 ml-auto">
+      <% if @post.user == current_user %>
+        <%= link_to "編集する", edit_post_path(@post), class: "btn btn-light" %>
+        <%= link_to '削除する', @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger ml-2" %>
+      <% end %>
+    </div>
   </div>
-  <div class="row">
-    <div class="col-3 my-3 ml-auto">
-        <% if @post.user == current_user %>
-          <%= link_to "編集する", edit_post_path(@post), class: "btn btn-light" %>
-          <%= link_to '削除する', @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger ml-2" %>
-        <% end %>
-      </div>
+  <!--コメント関連-->
+  <div class="row mt-3">
+    <%= render 'public/comments/form', {post: @post, comment: Comment.new} %>
+  </div>
+  <div class="row mt-3">
+    <%= render 'public/comments/index', post: @post %>
   </div>
 </div>
