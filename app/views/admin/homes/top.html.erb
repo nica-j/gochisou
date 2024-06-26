@@ -20,7 +20,7 @@
                 <% if post.image.attached? %>
                   <%= image_tag post.image, size: "40x30" %>
                 <% else %>
-                  <%= image_tag 'no_image', size: "40x30" %>
+                  <%= image_tag 'no_image.jpg', size: "40x30" %>
                 <% end %>
               </td>
               <td><%= link_to post.dish, admin_post_path(post) %></td>
@@ -29,7 +29,7 @@
                 <% if post.user.image.attached? %>
                   <%= image_tag post.user.image, size: "30x30" %>
                 <% else %>
-                  <%= image_tag 'user_no_image', size: "30x30" %>
+                  <%= image_tag 'user_no_image.jpg', size: "30x30" %>
                 <% end %>
               </td>
               <td><%= link_to post.user.name, admin_user_path(post.user_id) %></td>

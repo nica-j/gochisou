@@ -18,7 +18,7 @@
                 <% if user.image.attached? %>
                   <%= image_tag user.image, size: "40x30" %>
                 <% else %>
-                  <%= image_tag 'user_no_image', size: "40x30" %>
+                  <%= image_tag 'user_no_image.jpg', size: "40x30" %>
                 <% end %>
               </td>
               <td><%= link_to user.name, admin_user_path(user) %></td>
