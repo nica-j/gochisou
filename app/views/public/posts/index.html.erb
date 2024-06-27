@@ -11,21 +11,21 @@
               <% else %>
                 <%= link_to (image_tag 'no_image.jpg', size: "160x120"), post_path(post) %>
               <% end %></br>
-              <%= link_to post.dish, post_path(post) %></br>
+              <%= link_to post.dish, post_path(post), class: "text-dark" %></br>
 
               <% if post.user.image.attached? %>
                 <%= link_to (image_tag post.user.image, size: "30x30"), user_path(post.user_id) %>
               <% else %>
                 <%= link_to (image_tag 'user_no_image.jpg', size: "30x30"), user_path(post.user_id) %>
               <% end %>
-              <%= link_to post.user.name, user_path(post.user_id) %>
+              <%= link_to post.user.name, user_path(post.user_id), class: "text-dark" %>
             <% else %>
               <% if post.image.attached? %>
                 <%= link_to (image_tag post.image, size: "160x120"), post_path(post) %>
               <% else %>
                 <%= link_to (image_tag 'no_image.jpg', size: "160x120"), post_path(post) %>
               <% end %></br>
-              <%= link_to post.dish, post_path(post) %></br>
+              <%= link_to post.dish, post_path(post), class: "text-dark" %></br>
             <% end %>
           </div>
         <% end %>

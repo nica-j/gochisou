@@ -30,7 +30,7 @@
             <% else %>
               <%= link_to (image_tag 'no_image.jpg', size: "160x120"), post_path(post) %>
             <% end %>
-            <br><%= link_to post.dish, post_path(post) %>
+            <br><%= link_to post.dish, post_path(post), class: "text-dark" %>
           </div>
         <% end %>
       </div>
