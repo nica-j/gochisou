@@ -1,5 +1,18 @@
 ja:
-  
+  activerecord:
+    attributes:
+      user:
+        name: ユーザーネーム
+        introduction: 自己紹介文
+      post:
+        dish: 料理名
+        impression: 感想
+        restaurant_name: 店名
+        menu: メニュー名
+        address: 住所
+      genre:
+        name: ジャンル名
+
   date:
     abbr_day_names:
     - 日
@@ -10,7 +23,7 @@ ja:
     - 金
     - 土
     abbr_month_names:
-    - 
+    -
     - 1月
     - 2月
     - 3月
@@ -36,7 +49,7 @@ ja:
       long: "%Y年%m月%d日(%a)"
       short: "%m/%d"
     month_names:
-    - 
+    -
     - 1月
     - 2月
     - 3月

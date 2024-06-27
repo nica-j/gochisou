@@ -30,6 +30,11 @@
   height: 150px;
 }
 
+/*エラー文でレイアウトが崩れないようにするため*/
+.field_with_errors {
+  display: contents;
+}
+
 /*ページネーション自体のデザイン*/
 .pagination>li>a {
   border: none;     /*枠線をなくす*/

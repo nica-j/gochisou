@@ -1,7 +1,7 @@
 <div class="container mt-3">
   <div class="row">
     <div>
-			<h4 class="mb-3">ジャンル名編集</h4>
+			<h4 class="col-12 mb-3">ジャンル名編集</h4>
 				<%= form_with model: @genre, url: admin_genre_path(@genre), method: "patch" do |f| %>
 				<%= render 'layouts/error_messages', resource: @genre %>
 				<%= f.label :name, "ジャンル名", class:"mx-1" %>
