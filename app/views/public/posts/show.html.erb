@@ -31,6 +31,7 @@
         </div>
         <div class="mx-2">
           <%= render 'public/comments/counter', post: @post %>
+          <br><span class="text-secondary">comment</span>
         </div>
       </div>
     </div>
@@ -50,10 +51,10 @@
     </div>
   </div>
   <!--コメント関連-->
-  <div id="comment-form", class="row mt-3">
+  <div id="comment-form" class="row mt-3">
     <%= render 'public/comments/form', {post: @post, comment: Comment.new} %>
   </div>
-  <div id="comments", class="row mt-3">
+  <div id="comments" class="row mt-3">
     <%= render 'public/comments/index', post: @post %>
   </div>
 </div>

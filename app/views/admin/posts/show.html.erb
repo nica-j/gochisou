@@ -39,4 +39,7 @@
       <%= link_to '削除する', admin_post_path(@post), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger ml-2" %>
     </div>
   </div>
+  <div id="comments" class="row mt-3">
+    <%= render 'public/comments/index', post: @post %>
+  </div>
 </div>
