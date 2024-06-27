@@ -10,11 +10,15 @@ class Admin::UsersController < ApplicationController
     @posts = @user.posts.page(params[:page])
   end
 
-  # 会員のステータス変更処理のみ
+  # 会員のステータス変更処理のみ、万が一用にここでゲストを削除できないように
   def update
     @user = User.find(params[:id])
-    @user.update(is_active: false)
-    redirect_to admin_user_path(@user), notice: "退会が完了しました"
+    if @user.guest_user?
+      redirect_to admin_user_path(@user), alert: "ゲストユーザーは削除できません"
+    else
+      @user.update(is_active: false)
+      redirect_to admin_user_path(@user), notice: "退会が完了しました"
+    end
   end
 
 end

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12 mx-auto">
-      <div class="back_image position-relative" style="background-image: image-url('/assets/meal_time_change.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; height: 150px;">
+      <div class="home_image position-relative">
         <h1 class="text-center text-white pt-5">人生のおいしいを共有しよう</h1>
 
       </div>
@@ -12,14 +12,14 @@
       <h5 class="mt-1">新規投稿</h5>
       <div class="d-flex flex-wrap">
         <% @posts.each do |post| %>
-          <div class="col-2 pr-3 mb-3">
+          <div class="col-2 mr-1 mb-1">
             <% if post.image.attached? %>
               <%= link_to (image_tag post.image, size: "160x120"), post_path(post) %>
             <% else %>
-              <%= link_to (image_tag 'no_image', size: "160x120"), post_path(post) %>
+              <%= link_to (image_tag 'no_image.jpg', size: "160x120"), post_path(post) %>
             <% end %></br>
             <%= link_to post.dish, post_path(post), class: "text-dark text-center" %></br>
-            <%= post.impression.truncate(20) %>
+            <span class="text-secondary"><%= post.impression.truncate(20) %></span>
           </div>
         <% end %>
       </div>
