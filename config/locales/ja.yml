@@ -10,8 +10,7 @@ ja:
         restaurant_name: 店名
         menu: メニュー名
         address: 住所
-      genre:
-        name: ジャンル名
+
 
   date:
     abbr_day_names:

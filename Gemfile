@@ -58,6 +58,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #ここから自己追加分
 gem 'devise'
 gem 'kaminari','~> 1.2.1'
+gem 'jquery-rails'
 
 # ここからデプロイ
 gem 'dotenv-rails'
