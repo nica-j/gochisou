@@ -1,27 +1,29 @@
-<div class="col-12">
-  <h5>コメント</h5>
-  <% post.comments.each do |comment| %>
-    <div class="d-flex mb-1">
-      <div class="col-1">
-        <%= link_to user_path(comment.user) do %>
-          <% if comment.user.image.attached? %>
-            <%= image_tag comment.user.image, size: "45x45" %>
-          <% else %>
-            <%= image_tag 'user_no_image', size: "45x45" %>
+<% if post.user.is_active == true %>
+  <div class="col-12">
+    <h5>コメント</h5>
+    <% post.comments.each do |comment| %>
+      <div class="d-flex mb-1">
+        <div class="col-1">
+          <%= link_to user_path(comment.user) do %>
+            <% if comment.user.image.attached? %>
+              <%= image_tag comment.user.image, size: "45x45" %>
+            <% else %>
+              <%= image_tag 'user_no_image', size: "45x45" %>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
+        <div class="col-9">
+          <%= link_to comment.user.name, user_path(comment.user) %></br>
+          <%= comment.comment %>
+        </div>
+        <div class="col-2">
+          <% if comment.user == current_user %>
+            <%= link_to '削除する', post_comment_path(post,comment), method: :delete, class: "btn btn-sm btn-outline-secondary", remote: true %>
+          <% elsif admin_signed_in? %>
+            <%= link_to '削除する', admin_post_comment_path(post,comment), method: :delete, class: "btn btn-sm btn-outline-secondary", remote: true %>
+          <% end %>
+        </div>
       </div>
-      <div class="col-9">
-        <%= link_to comment.user.name, user_path(comment.user) %></br>
-        <%= comment.comment %>
-      </div>
-      <div class="col-2">
-        <% if comment.user == current_user %>
-          <%= link_to '削除する', post_comment_path(post,comment), method: :delete, class: "btn btn-sm btn-outline-secondary", remote: true %>
-        <% elsif admin_signed_in? %>
-          <%= link_to '削除する', admin_post_comment_path(post,comment), method: :delete, class: "btn btn-sm btn-outline-secondary", remote: true %>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+<% end %>
