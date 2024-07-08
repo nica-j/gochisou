@@ -9,6 +9,16 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
+    # 画像のAI判断処理
+    if post_params[:image].present?
+      result = Vision.image_analysis(post_params[:image])
+      if result == false
+        flash.now[:alert] = "画像が不適切です。"
+        render :new
+        return
+      end
+    end
+    
     if @post.save
       redirect_to post_path(@post), notice: "投稿に成功しました"
     else
@@ -30,10 +40,18 @@ class Public::PostsController < ApplicationController
   
   def update
     @post = Post.find(params[:id])
+    if post_params[:image].present?
+      result = Vision.image_analysis(post_params[:image])
+      if result == false
+        flash.now[:alert] = "画像が不適切です。"
+        render :edit
+        return
+      end
+    end
     if @post.update(post_params)
       redirect_to post_path(@post), notice: "更新に成功しました"
     else
-      render "edit"
+      render :edit
     end
   end
   
