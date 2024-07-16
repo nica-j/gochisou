@@ -37,6 +37,11 @@
               <%= link_to (image_tag 'no_image.jpg', size: "160x120"), post_path(post) %>
             <% end %>
             <br><%= link_to post.dish, post_path(post), class: "text-dark" %>
+            <br><span class="text-danger">♥<%= post.favorites.count %></span>
+            <span class="ml-1">
+              <i class="fa-regular fa-comment-dots"></i>
+              <%= render 'public/comments/counter', post: post %>
+            </span>
           </div>
         <% end %>
       </div>

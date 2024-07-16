@@ -17,16 +17,16 @@ Rails.application.routes.draw do
       post 'users/guest_sign_in', to: 'sessions#guest_sign_in', as: 'users_guest_sign_in'
     end
     resources :users, only: [:show, :edit, :update, :destroy] do
+      member do
+        get 'favorites', to: 'favorites#index'
+      end
       resource :relationship, only: [:create, :destroy]
         get 'followers' => 'relationships#followers', as: 'followers'
         get 'followeds' => 'relationships#followeds', as: 'followeds'
     end
     resources :posts do
       resource :favorite, only: [:create, :destroy]
-      resources :comments, only: [:create, :update, :destroy]
-      member do
-        get 'favorites', to: 'favorites#index'
-      end
+      resources :comments, only: [:create, :destroy]
     end
   end
 
