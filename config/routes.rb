@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # ユーザー側
   devise_for :users, controllers: {
@@ -13,6 +12,7 @@ Rails.application.routes.draw do
 
     get 'about' => 'homes#about'
     get "search", to: "searches#search"
+    get 'genres/show'
     get 'users/mypage' => 'users#mypage', as: 'mypage'
     devise_scope :user do
       post 'users/guest_sign_in', to: 'sessions#guest_sign_in', as: 'users_guest_sign_in'
