@@ -1,0 +1,7 @@
+<% if current_user != user %>
+  <% if current_user.following?(user) %>
+    <%= link_to "フォロー中", user_relation_path(user.id), method: :delete, remote: true, class: "btn btn-sm btn-info ml-5 mt-2" %>
+  <% else %>
+    <%= link_to "フォローする", user_relation_path(user.id), method: :post, remote: true, class: "btn btn-sm btn-outline-info ml-5 mt-2" %>
+  <% end %>
+<% end %>

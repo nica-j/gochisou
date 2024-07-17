@@ -23,6 +23,12 @@
             <br><span class="text-secondary">食べたい</span>
           <% end %>
         </div>
+        <div class="ml-4 text-center">
+          <%= link_to user_followings_path(@user), class: "text-dark" do %>
+            <%= @user.followings.count %>
+            <br><span class="text-secondary">follow</span>
+          <% end %>
+        </div>
       </div>
       <div class="d-flex align-items-end">
         <span class="mr-2">introduction: </span>
