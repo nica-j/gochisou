@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
-
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # ユーザー側
   devise_for :users, controllers: {
     registrations: 'public/registrations',
     sessions: 'public/sessions'
   }
-  
+
 
   scope module: :public do
     root 'homes#top'
@@ -28,6 +27,7 @@ Rails.application.routes.draw do
       resource :favorite, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
+    resources :genres, only: [:show]
   end
 
   # 管理者側

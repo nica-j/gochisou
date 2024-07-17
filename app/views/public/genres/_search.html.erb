@@ -1,0 +1,6 @@
+<div class="text-center">
+  <span><%= link_to "全て", posts_path, class:"mx-2" %></span>
+  <% genres.each do |genre| %>
+  <span><%= link_to genre.name, genre_path(genre), class:"mx-2" %></span>
+  <% end %>
+</div>
