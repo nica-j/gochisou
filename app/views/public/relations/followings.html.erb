@@ -3,23 +3,7 @@
     <div class="col-12">
       <h4>フォローユーザー</h4>
       <% if @users.exists? %>
-        <table class= "table mt-1">
-          <% @users.each do |user| %>
-            <tbody>
-              <tr>
-                <td style="width: 5%">
-                  <% if user.image.attached? %>
-                    <%= image_tag user.image, size: "40x30" %>
-                  <% else %>
-                    <%= image_tag 'user_no_image.jpg', size: "40x30" %>
-                  <% end %>
-                </td>
-                <td style="width: 30%"><%= link_to user.name, user_path(user) %></td>
-                <td style="width: 65%"><%= user.introduction.truncate(100) %></td>
-              </tr>
-            </tbody>
-          <% end %>
-        </table>
+        <%= render 'public/users/index', users: @users %>
       <% else %>
         <p>フォローしたユーザーはいません</p>
       <% end %>
