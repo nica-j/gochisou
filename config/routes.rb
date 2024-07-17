@@ -5,14 +5,13 @@ Rails.application.routes.draw do
     registrations: 'public/registrations',
     sessions: 'public/sessions'
   }
-  
+
 
   scope module: :public do
     root 'homes#top'
 
     get 'about' => 'homes#about'
     get "search", to: "searches#search"
-    get 'genres/show'
     get 'users/mypage' => 'users#mypage', as: 'mypage'
     devise_scope :user do
       post 'users/guest_sign_in', to: 'sessions#guest_sign_in', as: 'users_guest_sign_in'
@@ -28,6 +27,7 @@ Rails.application.routes.draw do
       resource :favorite, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
+    resources :genres, only: [:show]
   end
 
   # 管理者側
