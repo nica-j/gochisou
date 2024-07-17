@@ -9,7 +9,7 @@
             <h4>投稿　"<%= @content %>"検索結果<%= @records.count %>件</h3>
           <%= render 'public/posts/index', posts: @records %>
         <% end %>
-      
+
       <% elsif admin_signed_in? %>
         <% if @model == 'user' %>
           <h4>ユーザー　"<%= @content %>"検索結果<%= @records.count %>件</h3>
