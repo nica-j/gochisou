@@ -13,8 +13,12 @@
           <% end %>
         </div>
         <div class="col-9">
-          <%= link_to comment.user.name, user_path(comment.user) %></br>
-          <%= comment.comment %>
+          <% if admin_signed_in? %>
+            <%= link_to comment.user.name, admin_user_path(comment.user) %>
+          <% else %>
+            <%= link_to comment.user.name, user_path(comment.user) %>
+          <% end %>
+          <br><%= comment.comment %>
         </div>
         <div class="col-2">
           <% if comment.user == current_user %>
