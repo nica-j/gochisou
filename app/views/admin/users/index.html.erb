@@ -6,8 +6,10 @@
           <tr>
             <th style="width: 5%">ID</th>
             <th style="width: 5%"></th>
-            <th style="width: 25%">ユーザーネーム</th>
-            <th style="width: 65%">自己紹介</th>
+            <th style="width: 20%">ユーザーネーム</th>
+            <th style="width: 60%">自己紹介</th>
+            <th style="width: 5%">post</th>
+            <th style="width: 5%">follower</th>
           </tr>
         </thead>
         <% @users.each do |user| %>
@@ -23,6 +25,8 @@
               </td>
               <td><%= link_to user.name, admin_user_path(user) %></td>
               <td><%= user.introduction.truncate(100) %></td>
+              <td class="text-center"><%= user.posts.count %></td>
+              <td class="text-center"><%= user.followers.count %></td>
             </tr>
           </tbody>
         <% end %>

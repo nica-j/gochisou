@@ -17,6 +17,9 @@
           <%= @user.posts.count %>
           <br><span class="text-secondary">post</span>
         </div>
+        <div id="relation-btn">
+          <%= render "public/relations/btn", user: @user %>
+        </div>
       </div>
       <div class="d-flex align-items-end">
         <span class="mr-2">introduction: </span>
