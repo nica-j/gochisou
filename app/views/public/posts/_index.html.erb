@@ -1,6 +1,6 @@
 <div class="d-flex flex-wrap mt-3">
   <% posts.each do |post| %>
-    <div class="col-2 mr-1 mb-2">
+    <div class="col-lg-2 col-md-3 sm-4 mr-1 mb-2">
       <% if post.user.is_active == true %>
         <% if post.image.attached? %>
           <%= link_to (image_tag post.image, size: "160x120"), post_path(post) %>
